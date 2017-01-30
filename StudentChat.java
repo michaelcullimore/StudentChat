@@ -15,21 +15,23 @@ public class StudentChat {
 	List<Student> temp = Groups.CreateStudents();
 	Groups.GenerateGroups(temp);
 
-	Student s = Groups.findStudent("Michael");
-	Student r = Groups.findStudent("Kendra");
+	Student m = Groups.findStudent("Michael");
+	Student k = Groups.findStudent("Kendra");
 
-	Groups.Chat(s, "Hi");
-	Groups.Chat(s, "Yo!");
-	Groups.Chat(r, "Hello!!!");
-	Groups.Chat(r, "Hey! :D");
-	Groups.Chat(r, "What's goin' on?!");
+	//
+	Groups.Chat(m, "Hi");
+	Groups.Chat(k, "Hello!!!");
+	Groups.Chat(m, "Yo!");
+	Groups.Chat(k, "Hey! :D");
+	Groups.Chat(m, "I'm glad this works!");
+	Groups.Chat(k, "What's goin' on?!");
 
-	ArrayList<String> a = Groups.FindConversationsofStudent("Michael");
+	ArrayList<String> a = Groups.FindConversationsOfStudent("Michael");
 
 	for (String item : a) {
 	    System.out.println(item);
-	}
+	} // end for
 
-    }
+    }// end main
 
-}
+}// end class

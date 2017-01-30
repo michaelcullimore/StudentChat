@@ -19,7 +19,7 @@ public class Group {
 
     private ArrayList<String> convo;
 
-    // Read as Group --> Students
+    // Read as Group to Students
     private HashMap<String, HashSet> GroupToStudents;
     private HashMap<Student, String> StudentToGroup;
     private HashMap<String, ArrayList> GroupToMessages;
@@ -36,10 +36,10 @@ public class Group {
 
 	size = 0;
 
-    }
+    }// end Group
 
     // Add 2 students to the chat group
-    public void addStudenttoGroup(Student Student1, Student Student2) {
+    public void addStudentToGroup(Student Student1, Student Student2) {
 	HashSet<Student> Groupof2Students = new HashSet<>();
 
 	Groupof2Students.add(Student1);
@@ -50,7 +50,7 @@ public class Group {
 	StudentToGroup.put(Student1, "Group" + size);
 	StudentToGroup.put(Student2, "Group" + size);
 
-    }
+    }// end addStudentToGroup
 
     // chat method between 2 people
     public void Chat(Student s, String message) {
@@ -62,9 +62,9 @@ public class Group {
 	    convo.add(s.firstName + " " + s.lastName + " : " + message);
 	    GroupToMessages.put(group, convo);
 	    s.thingsStudentHasSaid.add(s.firstName + " " + s.lastName + " : " + message);
-	}
+	} // end if/else
 
-    }
+    }// end Chat
 
     // creates the student class
     public List<Student> CreateStudents() {
@@ -76,62 +76,52 @@ public class Group {
 
 	    SortedClass.add(asdf);
 
-	}
+	} // end for
 
 	return SortedClass;
-    }
+
+    }// find CreateStudents
 
     // displays the convo
-    public ArrayList<String> FindConversationsofStudent(String firstName) {
+    public ArrayList<String> FindConversationsOfStudent(String firstName) {
 	String group = findStudentGroup(firstName);
 
 	ArrayList<String> conversation = GroupToMessages.get(group);
 
 	return conversation;
 
-    }
+    }// end FindConversationOfStudent
 
-    /**
-     * Returns a Student object based on the Students first name
-     *
-     * @param first
-     * @return
-     */
+    // "Finds" a student based on the first name
     public Student findStudent(String first) {
 
 	for (Student item : SortedClass) {
 	    if (item.firstName.equals(first)) {
 		return item;
-	    }
+	    } // end if
 
-	}
+	} // end for
 
 	return null;
 
-    }
+    }// end findStudent
 
-    /**
-     * private helper
-     *
-     * @param name
-     * @return
-     */
     private String findStudentGroup(String name) {
 	Student s = findStudent(name);
 	String group = StudentToGroup.get(s);
 	return group;
-    }
+    }// end findStudentGroup
 
     // generates the groups for the people in the class
     public int GenerateGroups(List<Student> allStudents) {
 	int count = 0;
 	for (int i = 0; i < allStudents.size() / 2; i++) {
-	    addStudenttoGroup(allStudents.get(count), allStudents.get(count + 1));
+	    addStudentToGroup(allStudents.get(count), allStudents.get(count + 1));
 	    count = count + 2;
-	}
+	} // end for
 
 	return 0;
 
-    }
+    }// end GenerateGroups
 
 }

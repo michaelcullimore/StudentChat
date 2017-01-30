@@ -15,12 +15,12 @@ public class Student {
     // Super easy way to keep track of repeated messages
     public HashSet<String> thingsStudentHasSaid;
 
-    public Student(String first, String last, int _score) {
+    public Student(String first, String last, int score1) {
 	firstName = first;
 	lastName = last;
-	score = _score;
+	score = score1;
 	thingsStudentHasSaid = new HashSet<>();
 
-    }
+    }// end Student
 
-}
+}// end class

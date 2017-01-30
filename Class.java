@@ -12,7 +12,7 @@ public class Class {
     public Class() {
 	studentArrayList = new ArrayList<>();
 	classOfStudents();
-    }
+    }// end Class
 
     // add students to the class
     private void classOfStudents() {
