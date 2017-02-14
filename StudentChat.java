@@ -9,29 +9,32 @@ import java.util.List;
 
 public class StudentChat {
 
-    // test all the objects
     public static void main(String[] args) {
 	Group Groups = new Group();
 	List<Student> temp = Groups.CreateStudents();
 	Groups.GenerateGroups(temp);
 
+	// sample of a group (more can be added)
 	Student m = Groups.findStudent("Michael");
-	Student k = Groups.findStudent("Kendra");
+	Student n = Groups.findStudent("Nathan");
 
-	//
+	// sample text (more can be written)
 	Groups.Chat(m, "Hi");
-	Groups.Chat(k, "Hello!!!");
+	Groups.Chat(n, "Hello!!!");
 	Groups.Chat(m, "Yo!");
-	Groups.Chat(k, "Hey! :D");
+	Groups.Chat(n, "Hey! :D");
 	Groups.Chat(m, "I'm glad this works!");
-	Groups.Chat(k, "What's goin' on?!");
+	Groups.Chat(n, "What's goin' on?!");
 
 	ArrayList<String> a = Groups.FindConversationsOfStudent("Michael");
 
+	// prints the chat items
 	for (String item : a) {
 	    System.out.println(item);
-	} // end for
+	}
 
-    }// end main
+	new Client("Student Chat v1.0");
 
-}// end class
+    }
+
+}

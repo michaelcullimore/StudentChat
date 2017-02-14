@@ -12,11 +12,11 @@ public class Class {
     public Class() {
 	studentArrayList = new ArrayList<>();
 	classOfStudents();
-    }// end Class
+    }
 
     // add students to the class
     private void classOfStudents() {
-	// TODO Auto-generated method stub
+
 	studentArrayList.add("Nathan Borup");
 	studentArrayList.add("Ethan Brown");
 	studentArrayList.add("Michael Cullimore");
@@ -27,6 +27,6 @@ public class Class {
 	studentArrayList.add("Rizwan Mohammed");
 	studentArrayList.add("Lauren Ribeiro");
 	studentArrayList.add("Tyler Toponce");
-    }// end classOfStudents
+    }
 
-}// end class Class
+}

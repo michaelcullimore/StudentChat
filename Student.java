@@ -7,20 +7,35 @@ package cs3230;
 import java.util.HashSet;
 
 public class Student {
-    // Student values
-    public String firstName;
-    public String lastName;
+    String firstName;// TODO
+    String lastName;// TODO
     private int score;
 
-    // Super easy way to keep track of repeated messages
-    public HashSet<String> thingsStudentHasSaid;
+    // track the messages
+    HashSet<String> thingsStudentHasSaid;
 
     public Student(String first, String last, int score1) {
-	firstName = first;
-	lastName = last;
+	setFirstName(first);
+	setLastName(last);
 	score = score1;
 	thingsStudentHasSaid = new HashSet<>();
 
-    }// end Student
+    }
 
-}// end class
+    public String getFirstName() {
+	return firstName;
+    }
+
+    public String getLastName() {
+	return lastName;
+    }
+
+    public void setFirstName(String firstName) {
+	this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+	this.lastName = lastName;
+    }
+
+}
