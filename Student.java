@@ -7,9 +7,8 @@ package cs3230;
 import java.util.HashSet;
 
 public class Student {
-    String firstName;// TODO
-    String lastName;// TODO
-    private int score;
+    String firstName;
+    String lastName;
 
     // track the messages
     HashSet<String> thingsStudentHasSaid;

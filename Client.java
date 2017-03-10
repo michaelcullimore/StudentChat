@@ -31,6 +31,7 @@ public class Client extends JFrame implements WindowListener, MouseListener, Key
     private JScrollPane scroll;
     private JPanel contentPanel;
     String username = null;
+    Group Groups = new Group();
 
     Client(String s) {
 	super(s);
@@ -53,8 +54,6 @@ public class Client extends JFrame implements WindowListener, MouseListener, Key
 	contentPanel.add(scroll, "Center");
 	this.add(message_area, "Center");
 	message_area.setFont(new Font("Arial", Font.PLAIN, 16));
-	// message_area.add(g.FindConversationsOfStudent("Michael"));
-	// TODO
 
 	send_area = new JTextField(30);
 	send_area.addKeyListener(this);
