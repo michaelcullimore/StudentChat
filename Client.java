@@ -32,6 +32,9 @@ public class Client extends JFrame implements WindowListener, MouseListener, Key
     private JPanel contentPanel;
     String username = null;
     Group Groups = new Group();
+    Student s;
+    Student r;
+    String name;
 
     Client(String s) {
 	super(s);
@@ -125,7 +128,7 @@ public class Client extends JFrame implements WindowListener, MouseListener, Key
 
     @Override
     public void keyReleased(KeyEvent arg0) {
-
+	// pressed.remove(arg0.getKeyChar());
     }
 
     @Override

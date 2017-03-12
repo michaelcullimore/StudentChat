@@ -9,13 +9,14 @@ import java.util.HashSet;
 public class Student {
     String firstName;
     String lastName;
+    private int score;
 
     // track the messages
     HashSet<String> thingsStudentHasSaid;
 
     public Student(String first, String last, int score1) {
-	setFirstName(first);
-	setLastName(last);
+	firstName = first;
+	lastName = last;
 	score = score1;
 	thingsStudentHasSaid = new HashSet<>();
 
