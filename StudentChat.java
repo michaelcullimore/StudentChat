@@ -33,7 +33,7 @@ public class StudentChat {
 	    System.out.println(item);
 	}
 
-	new Client("Student Chat v1.0");
+	// new Client("Student Chat v1.0");
 
     }
 

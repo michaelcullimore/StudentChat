@@ -9,7 +9,7 @@ import java.util.HashSet;
 public class Student {
     String firstName;
     String lastName;
-    private int score;
+    // private int score;
 
     // track the messages
     HashSet<String> thingsStudentHasSaid;
@@ -17,7 +17,7 @@ public class Student {
     public Student(String first, String last, int score1) {
 	firstName = first;
 	lastName = last;
-	score = score1;
+	// score = score1;
 	thingsStudentHasSaid = new HashSet<>();
 
     }

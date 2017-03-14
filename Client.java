@@ -12,9 +12,17 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.net.InetAddress;
+import java.util.List;
 
+import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
@@ -26,25 +34,68 @@ public class Client extends JFrame implements WindowListener, MouseListener, Key
      *
      */
     private static final long serialVersionUID = -6918166283720253450L;
+    static JTextArea textArea;
+    Group Groups = new Group();
     private JTextArea message_area = null;
     private JTextField send_area = null;
     private JScrollPane scroll;
     private JPanel contentPanel;
     String username = null;
-    Group Groups = new Group();
+    String name;
     Student s;
     Student r;
-    String name;
 
-    Client(String s) {
+    Client(String s) throws IOException {
 	super(s);
+
+	InetAddress ipAddress;
+	BufferedReader input;
+	PrintWriter output;
+	BufferedReader stdIn;
+
+	JTextField nameField = new JTextField(8);
+	JTextField ipAddressField = new JTextField(8);
+
+	textArea = new JTextArea(20, 35);
+	textArea.setEditable(false);
+
+	JPanel panel01 = new JPanel();
+	panel01.add(new JLabel("Name:"));
+	panel01.add(nameField);
+	panel01.add(new JLabel("IP Address:"));
+	panel01.add(ipAddressField);
+
+	int result = JOptionPane.showConfirmDialog(null, panel01, "Please enter your name and IP Address",
+		JOptionPane.OK_CANCEL_OPTION);
+	if (result == JOptionPane.CANCEL_OPTION) {
+	    return;
+	}
+
+	try {
+	    ipAddress = InetAddress.getByName(ipAddressField.getText());
+	    ClientHandler clienthandler = new ClientHandler(nameField.getText(), ipAddress);
+	    new Thread(clienthandler.start());
+
+	} catch (Exception e1) {
+
+	}
+	Groups = new Group();
+	List<Student> temp = Groups.CreateStudents();
+	Groups.GenerateGroups(temp);
+
+	JPanel panel = new JPanel();
+
+	panel.setLayout(new FlowLayout(BoxLayout.Y_AXIS));
+
+	JButton button = new JButton();
+
+	add(panel);
+
 	this.addWindowListener(this);
 	this.setSize(800, 600);
 	this.setResizable(true);
 	this.setLayout(new BorderLayout());
 	this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	// Group g = new Group();
-	// TODO
 	contentPanel = new JPanel();
 	contentPanel.setLayout(new FlowLayout());
 
