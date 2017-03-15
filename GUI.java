@@ -29,23 +29,25 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.ScrollPaneConstants;
 
-public class Client extends JFrame implements WindowListener, MouseListener, KeyListener {
+public class GUI extends JFrame implements WindowListener, MouseListener, KeyListener {
     /**
      *
      */
     private static final long serialVersionUID = -6918166283720253450L;
     static JTextArea textArea;
-    Group Groups = new Group();
+
+    Group Groups;
+    private JPanel contentPanel;
+    private JScrollPane scroll;
     private JTextArea message_area = null;
     private JTextField send_area = null;
-    private JScrollPane scroll;
-    private JPanel contentPanel;
-    String username = null;
     String name;
+    String username = null;
     Student s;
+
     Student r;
 
-    Client(String s) throws IOException {
+    GUI(String s) throws IOException {
 	super(s);
 
 	InetAddress ipAddress;
@@ -74,7 +76,7 @@ public class Client extends JFrame implements WindowListener, MouseListener, Key
 	try {
 	    ipAddress = InetAddress.getByName(ipAddressField.getText());
 	    ClientHandler clienthandler = new ClientHandler(nameField.getText(), ipAddress);
-	    new Thread(clienthandler.start());
+	    new Thread(clienthandler).start();
 
 	} catch (Exception e1) {
 

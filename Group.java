@@ -16,7 +16,6 @@ public class Group {
     private Class classroom = new Class();
 
     // the conversations list
-
     private ArrayList<String> convo;
 
     // Read as Group to Students
@@ -56,7 +55,6 @@ public class Group {
     // chat method between 2 people
     public void Chat(Student s, String message) {
 	String group = findStudentGroup(s.firstName);
-	// lays out the text
 	if (s.thingsStudentHasSaid.contains(s.firstName + " " + s.lastName + " : " + message)) {
 	    return;
 	} else {
