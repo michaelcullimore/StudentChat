@@ -53,7 +53,9 @@ public class MultipleServerHandler implements Runnable {
 
 	// input from user to server
 	try {
+
 	    while ((inputLine = input.readLine()) != null) {
+
 		if (set == false) {
 		    studentName = inputLine;
 
@@ -74,6 +76,7 @@ public class MultipleServerHandler implements Runnable {
 				output.flush();
 				outputLine = "";
 			    }
+
 			    set = true;
 			    continue;
 			}

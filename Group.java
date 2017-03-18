@@ -55,8 +55,10 @@ public class Group {
     // chat method between 2 people
     public void Chat(Student s, String message) {
 	String group = findStudentGroup(s.firstName);
+
 	if (s.thingsStudentHasSaid.contains(s.firstName + " " + s.lastName + " : " + message)) {
 	    return;
+
 	} else {
 	    convo.add(s.firstName + " " + s.lastName + " : " + message);
 	    GroupToMessages.put(group, convo);
@@ -71,9 +73,7 @@ public class Group {
 
 	for (String s : classroom.studentArrayList) {
 	    String[] parts = s.split(" ");
-
 	    Student asdf = new Student(parts[0], parts[1], 0);
-
 	    SortedClass.add(asdf);
 
 	}
@@ -87,7 +87,6 @@ public class Group {
 	String group = findStudentGroup(firstName);
 
 	ArrayList<String> conversation = GroupToMessages.get(group);
-
 	return conversation;
 
     }
@@ -96,6 +95,7 @@ public class Group {
     public Student findStudent(String first) {
 
 	for (Student item : SortedClass) {
+
 	    if (item.firstName.equals(first)) {
 		return item;
 	    }
@@ -116,6 +116,7 @@ public class Group {
     // generates the groups for the people in the class
     public int GenerateGroups(List<Student> allStudents) {
 	int count = 0;
+
 	for (int i = 0; i < allStudents.size() / 2; i++) {
 	    addStudentToGroup(allStudents.get(count), allStudents.get(count + 1));
 	    count = count + 2;

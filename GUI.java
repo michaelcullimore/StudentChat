@@ -47,8 +47,7 @@ public class GUI extends JFrame implements WindowListener, MouseListener, KeyLis
 
     Student r;
 
-    public GUI() throws IOException {// GUI(String s)
-	// super(s);
+    public GUI() throws IOException {
 	InetAddress ipAddress;
 
 	JTextField nameField = new JTextField(8);
@@ -177,7 +176,7 @@ public class GUI extends JFrame implements WindowListener, MouseListener, KeyLis
 
     @Override
     public void keyReleased(KeyEvent arg0) {
-	// pressed.remove(e.getKeyChar());
+
     }
 
     @Override

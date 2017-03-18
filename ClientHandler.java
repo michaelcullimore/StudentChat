@@ -27,16 +27,19 @@ public class ClientHandler implements Runnable {
 
 	try {
 	    String fromServer;
+
 	    try {
 		myClient = new Socket("localhost", 8090);
 	    } catch (IOException e1) {
 		e1.printStackTrace();
 	    }
+
 	    try {
 		output = new PrintWriter(myClient.getOutputStream(), true);
 	    } catch (IOException e1) {
 		e1.printStackTrace();
 	    }
+
 	    try {
 		in = new BufferedReader(new InputStreamReader(myClient.getInputStream()));
 	    } catch (IOException e1) {
@@ -44,34 +47,42 @@ public class ClientHandler implements Runnable {
 	    }
 
 	    fromUser = studentName;
+
 	    if (fromUser != null) {
 		System.out.println("Client: " + fromUser);
 		output.println(fromUser);
 	    }
 
 	    try {
+
 		while ((fromServer = in.readLine()) != null) {
 		    System.out.println("Server: " + fromServer);
 		    GUI.textArea.append(fromServer + "\n");
 		    fromServer = "";
 		}
+
 	    } catch (IOException e1) {
 		e1.printStackTrace();
 	    }
 
 	    // starts server even if one doesn't exist
 	} catch (Exception e) {
+
 	    try {
 		new Thread(new ServerHandler()).start();
 	    } catch (Exception e2) {
 		e2.printStackTrace();
+
 	    } finally {
+
 		try {
 		    TimeUnit.SECONDS.sleep(2);
 		} catch (InterruptedException e1) {
 		    e1.printStackTrace();
 		}
+
 		run();
+
 	    }
 	}
     }

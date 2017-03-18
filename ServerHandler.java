@@ -23,11 +23,13 @@ public class ServerHandler implements Runnable {
 	}
 
 	while (true) {
+
 	    try {
 		socket = ss.accept();
 	    } catch (IOException e) {
 		e.printStackTrace();
 	    }
+
 	    new Thread(new MultipleServerHandler(socket)).start();
 	}
 
