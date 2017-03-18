@@ -12,9 +12,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.net.InetAddress;
 import java.util.List;
 
@@ -27,7 +25,6 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
-import javax.swing.ScrollPaneConstants;
 
 public class GUI extends JFrame implements WindowListener, MouseListener, KeyListener {
     /**
@@ -36,9 +33,12 @@ public class GUI extends JFrame implements WindowListener, MouseListener, KeyLis
     private static final long serialVersionUID = -6918166283720253450L;
     static JTextArea textArea;
 
+    public static void main(String[] args) throws IOException {
+	new GUI();
+    }
+
     Group Groups;
     private JPanel contentPanel;
-    private JScrollPane scroll;
     private JTextArea message_area = null;
     private JTextField send_area = null;
     String name;
@@ -47,13 +47,9 @@ public class GUI extends JFrame implements WindowListener, MouseListener, KeyLis
 
     Student r;
 
-    GUI(String s) throws IOException {
-	super(s);
-
+    public GUI() throws IOException {// GUI(String s)
+	// super(s);
 	InetAddress ipAddress;
-	BufferedReader input;
-	PrintWriter output;
-	BufferedReader stdIn;
 
 	JTextField nameField = new JTextField(8);
 	JTextField ipAddressField = new JTextField(8);
@@ -81,15 +77,13 @@ public class GUI extends JFrame implements WindowListener, MouseListener, KeyLis
 	} catch (Exception e1) {
 
 	}
+
 	Groups = new Group();
 	List<Student> temp = Groups.CreateStudents();
 	Groups.GenerateGroups(temp);
 
 	JPanel panel = new JPanel();
-
 	panel.setLayout(new FlowLayout(BoxLayout.Y_AXIS));
-
-	JButton button = new JButton();
 
 	add(panel);
 
@@ -105,8 +99,10 @@ public class GUI extends JFrame implements WindowListener, MouseListener, KeyLis
 	message_area.setEditable(false);
 	message_area.setLineWrap(true);
 	message_area.setWrapStyleWord(true);
-	scroll = new JScrollPane(message_area);
-	scroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+	JScrollPane scroll = new JScrollPane(message_area, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
+		JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+	scroll.setSize(400, 100);
+
 	contentPanel.add(scroll, "Center");
 	this.add(message_area, "Center");
 	message_area.setFont(new Font("Arial", Font.PLAIN, 16));
@@ -181,7 +177,7 @@ public class GUI extends JFrame implements WindowListener, MouseListener, KeyLis
 
     @Override
     public void keyReleased(KeyEvent arg0) {
-	// pressed.remove(arg0.getKeyChar());
+	// pressed.remove(e.getKeyChar());
     }
 
     @Override
