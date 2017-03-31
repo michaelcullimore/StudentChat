@@ -9,7 +9,7 @@ public class Group {
 	String[] testConvo1 = { "Hey!", "What are you up to?", "I'm just working on homework, so I can't do anything.",
 		"I've done that for the past 4 nights.", "Well, you win. Bye." };
 	String[] testConvo2 = { "Yo!", "Not much, you?", "Yeah, me too. I pulled an all nighter.",
-		"I'm going on a week.", "Well,Bye." };
+		"I'm going on a week.", "Well, Bye." };
 	Student student1 = new Student("Michael", "Cullimore", 97.5, testConvo1);
 	Student student2 = new Student("Sniglet", "Drapp", -40.5, testConvo2);
 
