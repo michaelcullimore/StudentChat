@@ -10,21 +10,20 @@ import java.util.Arrays;
 public class Student {
     public static void main(String[] args) {
 	// make a test conversation, create a student
-	String[] testconvo = { "test", "hi", "Guten Morgen!", "Hey", "g2g" };
+	String[] testconvo = { "test", "hi", "Guten Morgen!", "How are you?", "Let's go feed the ducks!" };
 	Student student01 = new Student("Michael", "Cullimore", 97.5, testconvo);
 
 	// test
-	System.out.println(student01.toString());// oh, I had a toString method
-						 // earlier... Don't know what
-						 // happened to it...
+	System.out.println(student01.toString());// posts information about the
+						 // student
 	System.out.println(student01.conversations.get(0));// gets elements from
 							   // testconvo
 	System.out.println(student01.conversations.get(1));// ""
+	System.out.println(student01.conversations.get(4));
     }
 
     private String firstName;
     private String lastName;
-
     private double score;
 
     ArrayList<String> conversations;
@@ -38,30 +37,26 @@ public class Student {
     }
 
     public String getFirstName() {
-	// TODO Auto-generated method stub
 	return firstName;
     }
 
     public String getLastName() {
-	// TODO Auto-generated method stub
 	return lastName;
     }
 
     public double getScore() {
-	// TODO Auto-generated method stub
 	return score;
     }
 
     public void setScore(double score) {
-	// TODO Auto-generated method stub
 	this.score = score;
     }
 
-    // generated toString
+    // shows information about the student
     @Override
     public String toString() {
-	return "Student [firstName=" + firstName + ", lastName=" + lastName + ", score=" + score + ", conversations="
-		+ conversations + "]";
+	return "Student [firstName = " + firstName + ", lastName = " + lastName + ", score = " + score
+		+ ", conversations = " + conversations + "]";
     }
 
 }
