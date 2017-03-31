@@ -36,6 +36,42 @@ public class Student {
 	this.conversations = new ArrayList<>(Arrays.asList(convos));
     }
 
+    @Override
+    public boolean equals(Object o) {
+	if (this == o) {
+	    return true;
+	}
+	if (o == null) {
+	    return false;
+	}
+	Student other = (Student) o;
+	if (conversations == null) {
+	    if (other.conversations != null) {
+		return false;
+	    }
+	} else if (!conversations.equals(other.conversations)) {
+	    return false;
+	}
+	if (firstName == null) {
+	    if (other.firstName != null) {
+		return false;
+	    }
+	} else if (!firstName.equals(other.firstName)) {
+	    return false;
+	}
+	if (lastName == null) {
+	    if (other.lastName != null) {
+		return false;
+	    }
+	} else if (!lastName.equals(other.lastName)) {
+	    return false;
+	}
+	if (Double.doubleToLongBits(score) != Double.doubleToLongBits(other.score)) {
+	    return false;
+	}
+	return true;
+    }
+
     public String getFirstName() {
 	return firstName;
     }
@@ -46,6 +82,17 @@ public class Student {
 
     public double getScore() {
 	return score;
+    }
+
+    public int hashcode() {
+	int prime = 31;
+	int result = 1;
+	result = prime * result + ((firstName == null) ? 0 : firstName.hashCode());
+	result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
+	long x;
+	x = Double.doubleToLongBits(score);
+	result = prime * result + (int) (x ^ (x >>> 32));
+	return result;
     }
 
     public void setScore(double score) {
