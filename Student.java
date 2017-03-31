@@ -14,8 +14,10 @@ public class Student {
 	Student student01 = new Student("Michael", "Cullimore", 97.5, testconvo);
 
 	// test
-	System.out.println(student01.toString());
-	System.out.println(student01.conversations.get(0));
+	System.out.println(student01.toString());// doesn't work
+	System.out.println(student01.conversations.get(0));// gets elements from
+							   // testconvo
+	System.out.println(student01.conversations.get(1));// ""
     }
 
     private String firstName;
@@ -46,5 +48,10 @@ public class Student {
     public double getScore() {
 	// TODO Auto-generated method stub
 	return score;
+    }
+
+    public void setScore(double score) {
+	// TODO Auto-generated method stub
+	this.score = score;
     }
 }
