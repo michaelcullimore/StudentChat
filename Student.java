@@ -14,7 +14,9 @@ public class Student {
 	Student student01 = new Student("Michael", "Cullimore", 97.5, testconvo);
 
 	// test
-	System.out.println(student01.toString());// doesn't work
+	System.out.println(student01.toString());// oh, I had a toString method
+						 // earlier... Don't know what
+						 // happened to it...
 	System.out.println(student01.conversations.get(0));// gets elements from
 							   // testconvo
 	System.out.println(student01.conversations.get(1));// ""
@@ -54,4 +56,12 @@ public class Student {
 	// TODO Auto-generated method stub
 	this.score = score;
     }
+
+    // generated toString
+    @Override
+    public String toString() {
+	return "Student [firstName=" + firstName + ", lastName=" + lastName + ", score=" + score + ", conversations="
+		+ conversations + "]";
+    }
+
 }
