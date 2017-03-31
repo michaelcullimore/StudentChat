@@ -6,8 +6,13 @@ package cs3230;
 
 public class Group {
     public static void main(String[] args) {
-	// TODO Auto-generated method stub
+	String[] testConvo = { "test", "hi", "Guten Morgen!", "How are you?", "Let's go feed the ducks!" };
+	Student student1 = new Student("Michael", "Cullimore", 97.5, testConvo);
+	Student student2 = new Student("Sniglet", "Drapp", -40.5, testConvo);
 
+	// tests the group setup Makes sure that students can be put in a group
+	Group groupTest = new Group(student1, student2);
+	System.out.println(groupTest.toString());// works!
     }
 
     Student sA;
@@ -37,6 +42,11 @@ public class Group {
 		this.sB = student1;
 	    }
 	}
+    }
+
+    @Override
+    public String toString() {
+	return "Group [sA = " + sA + ", sB = " + sB + "]";
     }
 
 }

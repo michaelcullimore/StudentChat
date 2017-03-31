@@ -10,14 +10,14 @@ import java.util.Arrays;
 public class Student {
     public static void main(String[] args) {
 	// make a test conversation, create a student
-	String[] testconvo = { "test", "hi", "Guten Morgen!", "How are you?", "Let's go feed the ducks!" };
-	Student student01 = new Student("Michael", "Cullimore", 97.5, testconvo);
+	String[] testConvo = { "test", "hi", "Guten Morgen!", "How are you?", "Let's go feed the ducks!" };
+	Student student01 = new Student("Michael", "Cullimore", 97.5, testConvo);
 
 	// test
 	System.out.println(student01.toString());// posts information about the
 						 // student
 	System.out.println(student01.conversations.get(0));// gets elements from
-							   // testconvo
+							   // testConvo
 	System.out.println(student01.conversations.get(1));// ""
 	System.out.println(student01.conversations.get(4));
     }
