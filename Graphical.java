@@ -28,7 +28,7 @@ public class Graphical extends JFrame {
     private JPanel panel02;
     private JTextArea messageArea;
     private JTextArea sendArea;
-    private JScrollPane scrollBar;
+    private JScrollPane scrollBar01;
     private JButton sendButton;
     private JButton clearButton;
 
@@ -39,22 +39,20 @@ public class Graphical extends JFrame {
 
 	panel01 = new JPanel(new BorderLayout());
 
-	messageArea = new JTextArea(
-		"iodsuifusiuyv iuxyvcui xzyvuytsaydf usdyyoxcv uixzyuvuxzi ovuzxiovs dtfuystadf ysvuxcoiv hiyxcui xuiy xuicy uiuiyuy u y iuy iuy iuy yuty utyu t yu yg jg jh ghj yu tyut yu tty ry tryt yu ");
-
 	messageArea = new JTextArea();
 	messageArea.setEditable(false);
 	messageArea.setLineWrap(true);
-	messageArea.setFont(new Font("Arial", Font.PLAIN, 16));
-	scrollBar = new JScrollPane(messageArea);
-	scrollBar.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-	panel01.add(scrollBar, "Center");
+	messageArea.setFont(new Font("Ubuntu", Font.PLAIN, 16));
+
+	scrollBar01 = new JScrollPane(messageArea);
+	scrollBar01.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+	panel01.add(scrollBar01, "Center");
 
 	getContentPane().add(panel01);
 	panel02 = new JPanel(new FlowLayout());
-	sendArea = new JTextArea(0, 48);
+	sendArea = new JTextArea(3, 48);
 	sendArea.setEditable(true);
-	sendArea.setFont(new Font("Arial", Font.PLAIN, 16));
+	sendArea.setFont(new Font("Ubuntu", Font.PLAIN, 16));
 
 	sendButton = new JButton("Send");
 	clearButton = new JButton("Clear");
@@ -77,6 +75,7 @@ public class Graphical extends JFrame {
 	    }
 	});
 
+	// using ctrl+enter to send the text
 	sendArea.addKeyListener(new KeyListener() {
 	    @Override
 	    public void keyPressed(KeyEvent e) {
@@ -93,8 +92,9 @@ public class Graphical extends JFrame {
 	    public void keyTyped(KeyEvent e) {
 	    }
 	});
-	panel01.add(panel02, "South");
 
+	getContentPane().add(panel01);
+	panel01.add(panel02, "South");
 	panel01.setVisible(true);
 	setVisible(true);
     }
