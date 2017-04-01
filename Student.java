@@ -10,8 +10,8 @@ import java.util.Arrays;
 public class Student {
     public static void main(String[] args) {
 	// make a test conversation, create a student
-	String[] testConvo = { "test", "hi", "Guten Morgen!", "How are you?", "Let's go feed the ducks!" };
-	Student student01 = new Student("Michael", "Cullimore", 97.5, testConvo);
+	String[] testConvo1 = { "test", "hi", "Guten Morgen!", "How are you?", "Let's go feed the ducks!" };
+	Student student01 = new Student("Michael", "Cullimore", testConvo1);
 
 	// test
 	System.out.println(student01.toString());// posts information about the
@@ -29,11 +29,11 @@ public class Student {
     ArrayList<String> conversations;
 
     // create a student
-    public Student(String firstN, String lastN, double _score, String[] convos) {
+    public Student(String firstN, String lastN, String[] testConvo2) {
 	this.firstName = firstN;
 	this.lastName = lastN;
-	this.score = _score;
-	this.conversations = new ArrayList<>(Arrays.asList(convos));
+	// this.score = _score;
+	this.conversations = new ArrayList<>(Arrays.asList(testConvo2));
     }
 
     @Override
@@ -72,6 +72,10 @@ public class Student {
 	return true;
     }
 
+    public ArrayList<String> getConvos() {
+	return conversations;
+    }
+
     public String getFirstName() {
 	return firstName;
     }
@@ -95,6 +99,14 @@ public class Student {
 	return result;
     }
 
+    public void setConvos(ArrayList<String> conversations) {
+	this.conversations = conversations;
+    }
+
+    public void setConvos(String[] conversations) {
+	this.conversations = new ArrayList<>(Arrays.asList(conversations));
+    }
+
     public void setScore(double score) {
 	this.score = score;
     }
@@ -102,8 +114,7 @@ public class Student {
     // shows information about the student
     @Override
     public String toString() {
-	return "Student [firstName = " + firstName + ", lastName = " + lastName + ", score = " + score
-		+ ", conversations = " + conversations + "]";
+	return "Student [firstName = " + firstName + ", lastName = " + lastName + ", conversations = " + conversations
+		+ "]";
     }
-
 }
