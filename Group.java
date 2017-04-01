@@ -6,12 +6,11 @@ package cs3230;
 
 public class Group {
     public static void main(String[] args) {
-	String[] testConvo1 = { "Hey!", "What are you up to?", "I'm just working on homework, so I can't do anything.",
-		"I've done that for the past 4 nights.", "Well, you win. Bye." };
-	String[] testConvo2 = { "Yo!", "Not much, you?", "Yeah, me too. I pulled an all nighter.",
-		"I'm going on a week.", "Well, Bye." };
-	Student student1 = new Student("Michael", "Cullimore", testConvo1);
-	Student student2 = new Student("Sniglet", "Drapp", testConvo2);
+	String[] testConvo1g = { "Hello, does this thing work?", "Hey, how's it going?", "I'm fantastic", "Good",
+		"Big Gulps, huh? Well, see ya later!" };
+	String[] testConvo2g = { "Yo!", "Hey, how are you", "I'm good", "Good", "See ya" };
+	Student student1 = new Student("Michael", "Cullimore", testConvo1g);
+	Student student2 = new Student("Sniglet", "Drapp", testConvo2g);
 
 	// tests the group setup Makes sure that students can be put in a group
 	Group groupTest = new Group(student1, student2);

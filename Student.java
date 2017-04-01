@@ -10,8 +10,8 @@ import java.util.Arrays;
 public class Student {
     public static void main(String[] args) {
 	// make a test conversation, create a student
-	String[] testConvo1 = { "test", "hi", "Guten Morgen!", "How are you?", "Let's go feed the ducks!" };
-	Student student01 = new Student("Michael", "Cullimore", testConvo1);
+	String[] testConvo1s = { "test", "hi", "Guten Morgen!", "How are you?", "Let's go feed the ducks!" };
+	Student student01 = new Student("Michael", "Cullimore", testConvo1s);
 
 	// test
 	System.out.println(student01.toString());// posts information about the

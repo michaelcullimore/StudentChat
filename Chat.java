@@ -10,17 +10,16 @@ public class Chat {
     public static void main(String[] args) throws IOException {
 	ArrayList<Student> studentList = new ArrayList<>();
 
-	String[] testConvo1 = { "Hey!", "What are you up to?", "I'm just working on homework, so I can't do anything.",
-		"I've done that for the past 4 nights.", "Well, you win. Bye." };
-	String[] testConvo2 = { "Yo!", "Not much, you?", "Yeah, me too. I pulled an all nighter.",
-		"I'm going on a week.", "Well, Bye." };
+	String[] testConvo1c = { "Hello, does this thing work?", "Hey, how's it going?", "I'm fantastic", "Good",
+		"Big Gulps, huh? Well, see ya later!" };
+	String[] testConvo2c = { "Yo!", "Hey, how are you", "I'm good", "Good", "See ya" };
 
 	BufferedReader bReader = new BufferedReader(new FileReader("src/cs3230/studentList.csv"));
 	String line;
 
 	while ((line = bReader.readLine()) != null) {
 	    String[] name = line.split(",");
-	    studentList.add(new Student(name[0], name[1], testConvo2));
+	    studentList.add(new Student(name[0], name[1], testConvo2c));
 	}
 	bReader.close();
 
@@ -30,7 +29,7 @@ public class Chat {
 	for (int i = 0; i < studentList.size(); i++) {
 	    // Don't need to increment here, just add 1. Incrementing gives an
 	    // IndexOutOfBoundException
-	    studentList.get(i + 1).setConvos(testConvo1);
+	    studentList.get(i + 1).setConvos(testConvo1c);
 	    groups.add(new Group(studentList.get(i), studentList.get(++i)));
 	}
 
