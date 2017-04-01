@@ -19,8 +19,7 @@ public class Chat {
 	String line;
 
 	while ((line = bReader.readLine()) != null) {
-	    String[] name = line.split(", ");
-	    // ArrayIndexOutOfBoundsException: 1 ???
+	    String[] name = line.split(",");
 	    studentList.add(new Student(name[0], name[1], testConvo2));
 	}
 	bReader.close();
@@ -29,7 +28,9 @@ public class Chat {
 
 	ArrayList<Group> groups = new ArrayList<>();
 	for (int i = 0; i < studentList.size(); i++) {
-	    studentList.get(i++).setConvos(testConvo1);
+	    // Don't need to increment here, just add 1. Incrementing gives an
+	    // IndexOutOfBoundException
+	    studentList.get(i + 1).setConvos(testConvo1);
 	    groups.add(new Group(studentList.get(i), studentList.get(++i)));
 	}
 
