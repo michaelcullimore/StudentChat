@@ -8,23 +8,33 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Student {
+    public static int idPlus = 1;
+
     public static void main(String[] args) {
 	// make a test conversation, create a student
-	String[] testConvo1s = { "test", "hi", "Guten Morgen!", "How are you?", "Let's go feed the ducks!" };
+	String[] testConvo1s = { "test", "hi", "Guten Morgen!", "Good Morning!", "Let's go feed the ducks!",
+		"How can you not like ducks?" };
+	String[] testConvo2s = { "hey", "hello", "What does that mean?", "Oh, cool.", "I don't like ducks." };
 	Student student01 = new Student("Michael", "Cullimore", testConvo1s);
+	Student student02 = new Student("Kendra", "Koester", testConvo2s);
 
 	// test
 	System.out.println(student01.toString());// posts information about the
 						 // student
+	System.out.println(student02.toString());
 	System.out.println(student01.conversations.get(0));// gets elements from
 							   // testConvo
 	System.out.println(student01.conversations.get(1));// ""
 	System.out.println(student01.conversations.get(4));
+	System.out.println(student02.conversations.get(3));
+	System.out.println(student02.conversations.get(2));
     }
 
     private String firstName;
     private String lastName;
+
     private double score;
+    private final int studentIDNo;
 
     ArrayList<String> conversations;
 
@@ -34,6 +44,7 @@ public class Student {
 	this.lastName = lastN;
 	// this.score = _score;
 	this.conversations = new ArrayList<>(Arrays.asList(testConvo2));
+	studentIDNo = idPlus++;
     }
 
     @Override
@@ -45,25 +56,7 @@ public class Student {
 	    return false;
 	}
 	Student other = (Student) o;
-	if (conversations == null) {
-	    if (other.conversations != null) {
-		return false;
-	    }
-	} else if (!conversations.equals(other.conversations)) {
-	    return false;
-	}
-	if (firstName == null) {
-	    if (other.firstName != null) {
-		return false;
-	    }
-	} else if (!firstName.equals(other.firstName)) {
-	    return false;
-	}
-	if (lastName == null) {
-	    if (other.lastName != null) {
-		return false;
-	    }
-	} else if (!lastName.equals(other.lastName)) {
+	if (studentIDNo != other.studentIDNo) {
 	    return false;
 	}
 	if (Double.doubleToLongBits(score) != Double.doubleToLongBits(other.score)) {
@@ -114,7 +107,7 @@ public class Student {
     // shows information about the student
     @Override
     public String toString() {
-	return "Student [firstName = " + firstName + ", lastName = " + lastName + ", conversations = " + conversations
-		+ "]";
+	return "Student [firstName = " + firstName + "; lastName = " + lastName + "; studentIDNo = " + studentIDNo
+		+ "; conversations = " + conversations + "]";
     }
 }
