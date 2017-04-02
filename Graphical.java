@@ -34,10 +34,15 @@ public class Graphical extends JFrame {
 
     public Graphical() throws HeadlessException {
 	this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	this.setSize(new Dimension(800, 600));
 	this.setResizable(true);
+	this.setSize(new Dimension(800, 600));
+	this.setTitle("Student Chat Redo");
 
 	panel01 = new JPanel(new BorderLayout());
+
+	// TitledBorder border = new TitledBorder("This is my title");
+	// border.setTitleJustification(TitledBorder.CENTER);
+	// border.setTitlePosition(TitledBorder.TOP);
 
 	messageArea = new JTextArea();
 	messageArea.setEditable(false);
