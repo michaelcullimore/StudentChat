@@ -43,14 +43,12 @@ public class Student implements Comparable<Student> {
     public Student(String firstN, String lastN, String[] testConvo2) {
 	this.firstName = firstN;
 	this.lastName = lastN;
-	// this.score = _score;
 	this.conversations = new ArrayList<>(Arrays.asList(testConvo2));
 	studentIDNo = idPlus++;
     }
 
     @Override
     public int compareTo(Student o) {
-	// TODO Auto-generated method stub
 	String compareString = o.getFirstName() + o.getLastName();
 	String stringStudent = this.getFirstName() + " " + this.getLastName();
 	return stringStudent.compareToIgnoreCase(compareString);

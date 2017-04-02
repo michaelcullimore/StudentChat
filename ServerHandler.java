@@ -7,29 +7,26 @@ package cs3230;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.PrintWriter;
 import java.net.Socket;
 
 public class ServerHandler implements Runnable {
     private Socket socket;
     private BufferedReader inputStream;
-    private PrintWriter outputStream;
+    private String username;
 
-    public ServerHandler(Socket s) throws IOException {
+    public ServerHandler(Socket s, String user) throws IOException {
 	socket = s;
 	inputStream = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-	outputStream = new PrintWriter(socket.getOutputStream(), true);
+	username = user;
     }
 
     @Override
     public void run() {
-	outputStream.println("ACK");
-	String str;
+	String string01;
 	try {
-	    while ((str = inputStream.readLine()) != null) {
-		outputStream.println(str);
-		System.out.println("Client " + str);
-		outputStream.flush();
+	    while ((string01 = inputStream.readLine()) != null) {
+		Server.sendMessage(username + ": " + string01);
+		System.out.println(username + ": " + string01);
 	    }
 
 	} catch (IOException e) {

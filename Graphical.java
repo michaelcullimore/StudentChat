@@ -13,9 +13,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 
@@ -41,12 +39,11 @@ public class Graphical extends JFrame {
     private JButton sendButton;
     private JButton clearButton;
     private Socket socket01;
-    private BufferedReader br;
     private PrintWriter pw;
 
-    public Graphical(Socket socket01) throws HeadlessException, IOException {
-	this.socket01 = socket01;
-	br = new BufferedReader(new InputStreamReader(socket01.getInputStream()));
+    public Graphical(Socket socket02) throws HeadlessException, IOException {
+	this.socket01 = socket02;
+
 	pw = new PrintWriter(socket01.getOutputStream(), true);
 
 	this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -59,6 +56,7 @@ public class Graphical extends JFrame {
 	messageArea = new JTextArea();
 	messageArea.setEditable(false);
 	messageArea.setLineWrap(true);
+	messageArea.setWrapStyleWord(true);
 	messageArea.setFont(new Font("Arial", Font.PLAIN, 16));
 
 	scrollBar01 = new JScrollPane(messageArea);
@@ -73,9 +71,13 @@ public class Graphical extends JFrame {
 	sendArea.setLineWrap(true);
 	sendArea.setWrapStyleWord(true);
 
+	JScrollPane sendScroll = new JScrollPane(sendArea);
+	sendScroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+
 	sendButton = new JButton("Send");
 	clearButton = new JButton("Clear");
 	panel02.add(sendArea);
+	panel02.add(sendScroll);
 	panel02.add(sendButton);
 	panel02.add(clearButton);
 
@@ -119,17 +121,18 @@ public class Graphical extends JFrame {
 	setVisible(true);
     }
 
+    // adds the text to the message area
     public void addText(String chat) {
-	messageArea.append(chat);
+	messageArea.append(chat + "\n");
+	messageArea.setCaretPosition(messageArea.getDocument().getLength());
     }
 
     // adds name to the message area
     private void sendText() {
 	String chatSend;
-	String userName = "Michael";
 	chatSend = sendArea.getText();
-	messageArea.append(userName + ": " + chatSend + "\n");
 	sendArea.setText("");
+	pw.println(chatSend);
     }
 
 }
