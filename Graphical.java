@@ -1,3 +1,7 @@
+//Michael Cullimore
+//CS3230
+//Spring 2017 - Marsh
+
 package cs3230;
 
 import java.awt.BorderLayout;
@@ -9,6 +13,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.net.Socket;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -21,7 +30,7 @@ public class Graphical extends JFrame {
     private static final long serialVersionUID = -7365155579638644639L;
 
     public static void main(String[] args) {
-	new Graphical();
+	// new Graphical();
     }
 
     private JPanel panel01;
@@ -31,8 +40,15 @@ public class Graphical extends JFrame {
     private JScrollPane scrollBar01;
     private JButton sendButton;
     private JButton clearButton;
+    private Socket socket01;
+    private BufferedReader br;
+    private PrintWriter pw;
 
-    public Graphical() throws HeadlessException {
+    public Graphical(Socket socket01) throws HeadlessException, IOException {
+	this.socket01 = socket01;
+	br = new BufferedReader(new InputStreamReader(socket01.getInputStream()));
+	pw = new PrintWriter(socket01.getOutputStream(), true);
+
 	this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	this.setResizable(true);
 	this.setSize(new Dimension(800, 600));

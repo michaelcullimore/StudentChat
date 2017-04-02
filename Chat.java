@@ -7,9 +7,14 @@ package cs3230;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.InetAddress;
+import java.net.Socket;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
+
+import javax.swing.JOptionPane;
 
 public class Chat {
 
@@ -27,6 +32,7 @@ public class Chat {
 	    String[] name = line.split(",");
 	    students.add(new Student(name[0], name[1], testConvo2c));
 	}
+
 	bReader.close();
 
 	System.out.println(students);
@@ -36,6 +42,7 @@ public class Chat {
 	System.out.println(studentList);
 
 	ArrayList<Group> groups = new ArrayList<>();
+
 	for (int i = 0; i < students.size(); i++) {
 	    // Don't need to increment here, just add 1. Incrementing gives an
 	    // IndexOutOfBoundException
@@ -43,9 +50,28 @@ public class Chat {
 	    groups.add(new Group(studentList.get(i), studentList.get(++i)));
 	}
 
-	Graphical window = new Graphical();
+	groups.sort(null);
+
+	String ipAddress = JOptionPane.showInputDialog("Please enter IP Address of Server");
+
+	int portNo = 8080;
+	String str = "initilized";
+
+	new Thread(new Server()).start();
+
+	Socket socket01 = new Socket(InetAddress.getLocalHost(), portNo);
+	BufferedReader br = new BufferedReader(new InputStreamReader(socket01.getInputStream()));
+
+	System.out.println(InetAddress.getLocalHost());
+
+	Graphical window = new Graphical(socket01);
+
 	for (int i = 0; i < groups.size(); i++) {
 	    window.addText(groups.get(i).studentConversations());
+	}
+
+	while ((str = br.readLine()) != null) {
+	    window.addText(str);
 	}
 
     }
