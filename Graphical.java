@@ -99,6 +99,10 @@ public class Graphical extends JFrame {
 	setVisible(true);
     }
 
+    public void addText(String chat) {
+	messageArea.append(chat);
+    }
+
     private void sendText() {
 	String chatSend;
 	String userName = "Michael";

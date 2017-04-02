@@ -46,6 +46,19 @@ public class Group {
 	}
     }
 
+    public String studentConversations() {
+	String name1 = sA.getFirstName() + " " + sA.getLastName();
+	String name2 = sB.getFirstName() + " " + sB.getLastName();
+	String chat = " ";
+
+	int chatLength = Math.min(sA.conversations.size(), sB.conversations.size());
+	for (int i = 0; i < chatLength; i++) {
+	    chat += name1 + ": " + sA.conversations.get(i) + "\n";
+	    chat += name2 + ": " + sA.conversations.get(i) + "\n";
+	}
+	return chat;
+    }
+
     @Override
     public String toString() {
 	return "Group [sA = " + sA + "; sB = " + sB + "]";
