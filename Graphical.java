@@ -40,10 +40,6 @@ public class Graphical extends JFrame {
 
 	panel01 = new JPanel(new BorderLayout());
 
-	// TitledBorder border = new TitledBorder("This is my title");
-	// border.setTitleJustification(TitledBorder.CENTER);
-	// border.setTitlePosition(TitledBorder.TOP);
-
 	messageArea = new JTextArea();
 	messageArea.setEditable(false);
 	messageArea.setLineWrap(true);
