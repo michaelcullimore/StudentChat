@@ -42,17 +42,19 @@ public class Graphical extends JFrame {
 	messageArea = new JTextArea();
 	messageArea.setEditable(false);
 	messageArea.setLineWrap(true);
-	messageArea.setFont(new Font("Ubuntu", Font.PLAIN, 16));
+	messageArea.setFont(new Font("Arial", Font.PLAIN, 16));
 
 	scrollBar01 = new JScrollPane(messageArea);
 	scrollBar01.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 	panel01.add(scrollBar01, "Center");
-
 	getContentPane().add(panel01);
 	panel02 = new JPanel(new FlowLayout());
+
 	sendArea = new JTextArea(3, 48);
 	sendArea.setEditable(true);
-	sendArea.setFont(new Font("Ubuntu", Font.PLAIN, 16));
+	sendArea.setFont(new Font("Arial", Font.PLAIN, 16));
+	sendArea.setLineWrap(true);
+	sendArea.setWrapStyleWord(true);
 
 	sendButton = new JButton("Send");
 	clearButton = new JButton("Clear");
@@ -68,6 +70,7 @@ public class Graphical extends JFrame {
 	    }
 	});
 
+	// send button's function
 	sendButton.addActionListener(new ActionListener() {
 	    @Override
 	    public void actionPerformed(ActionEvent e) {
@@ -103,6 +106,7 @@ public class Graphical extends JFrame {
 	messageArea.append(chat);
     }
 
+    // adds name to the message area
     private void sendText() {
 	String chatSend;
 	String userName = "Michael";

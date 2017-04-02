@@ -4,7 +4,7 @@
 
 package cs3230;
 
-public class Group {
+public class Group implements Comparable<Group> {
     public static void main(String[] args) {
 	String[] testConvo1g = { "Hello, does this thing work?", "Hey, how's it going?", "I'm fantastic", "Good",
 		"Big Gulps, huh? Well, see ya later!" };
@@ -44,6 +44,18 @@ public class Group {
 		this.sB = student1;
 	    }
 	}
+    }
+
+    @Override
+    public int compareTo(Group o) {
+	// TODO Auto-generated method stub
+	String compareString = o.getStudentName();
+	return this.getStudentName().compareToIgnoreCase(compareString);
+    }
+
+    public String getStudentName() {
+	return this.sA.getFirstName() + " " + this.sB.getLastName();
+
     }
 
     public String studentConversations() {
