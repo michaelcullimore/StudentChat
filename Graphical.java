@@ -71,13 +71,9 @@ public class Graphical extends JFrame {
 	sendArea.setLineWrap(true);
 	sendArea.setWrapStyleWord(true);
 
-	JScrollPane sendScroll = new JScrollPane(sendArea);
-	sendScroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-
 	sendButton = new JButton("Send");
 	clearButton = new JButton("Clear");
 	panel02.add(sendArea);
-	panel02.add(sendScroll);
 	panel02.add(sendButton);
 	panel02.add(clearButton);
 

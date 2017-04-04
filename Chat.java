@@ -17,6 +17,8 @@ import java.util.Set;
 
 import javax.swing.JOptionPane;
 
+//to see gui, run this program
+
 public class Chat {
 
     public static void main(String[] args) throws IOException {
@@ -79,18 +81,7 @@ public class Chat {
 	    window.addText(groups.get(i).studentConversations());
 	}
 
-	window.addText("Enter Username: ");
-
-	while (true) {
-	    string01 = br.readLine();
-	    if (string01.equals("ACK")) {
-		window.addText("Username Accepted");
-		break;
-	    } else {
-		window.addText("Username not found. Please try again.");
-	    }
-
-	}
+	window.addText("Please Enter Username: ");
 
 	// controls server
 	while ((string01 = br.readLine()) != null) {

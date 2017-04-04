@@ -33,7 +33,6 @@ public class Student implements Comparable<Student> {
 
     private String firstName;
     private String lastName;
-
     private double score;
     private final int studentIDNo;
 
